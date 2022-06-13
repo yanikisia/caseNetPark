@@ -7,42 +7,115 @@ html, body {
     height: 100vh;
 }
 .body-container {
-    height:100vh;
-    border-collapse:collapse;
-    display : table;
+  width: 100%;
+  height:100vh;
+  border-collapse:collapse;
+  display : table;
 }
 
 .header {
-    width: 100vw;
-    position: fixed;
-    background-color: rgba(0, 10, 49, 0.8) !important;
+  position: fixed;
+  background-color: rgba(0, 10, 49, 0.8) !important;
 }
 
 .container-header {
-    background: transparent;
-    border-bottom-color: transparent;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-bottom-color: transparent;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .logo {
-    position: relative;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  align-items: center;
+  height: 80px;
 }
 
 .logo > img {
-max-width: 100%;
-height: 80px;
+  max-width: 100%;
+  height: 40px;
+}
+
+.navegation {
+  display: flex;
+}
+.navegation > h1 {
+  opacity: 0.9;
+  color: #EEE;
+  padding: 4px 14px 1px;
 }
 
 .page-title {
-    width: 100vw;
+  background-image: url("https://i.picsum.photos/id/1056/3988/2720.jpg?hmac=qX6hO_75zxeYI7C-1TOspJ0_bRDbYInBwYeoy_z_h08");
+  background-size: cover;
+  max-width: 100%;
+  height: 30vh;
+}
+
+#assinatura {
+  color: #1ABC9C;
 }
 
 .container-form {
-    width: 100vw;
+  max-width: 100%;
+}
+
+form  input {
+  margin-top: 20px;
+  height: 36px;
+  border: none;
+  box-shadow: none;
+  padding: 0 5px;
+  border: solid 1px #bebebe;
+  border-radius: 3px;
+  outline: none;
+}
+
+form > tr {
+  background-color: #000A31;
+  display: flex;
+}
+
+form > button {
+  height: 36px;
+  border-radius: 3px;
+  border: none;
+  padding: 0 12px;
+  margin: 0 5px;
+  min-width: 100px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  background-color: #50c86e;
+  color: #fff;
+}
+
+form > button:active {
+ opacity: 0.8;
+}
+
+form > section {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  align-items: end;
+  padding: 20px;
+  grid-gap: 10px;
+}
+
+.checkbox {
+  grid-column-start: 1;
+  grid-column-end: 1;
 }
 
 footer {
@@ -56,12 +129,12 @@ footer {
     height: 30vh;
 }
 
-h1 {
+/* h1 {
     text-align: center;
     font-family: Tahoma, Arial, sans-serif;
     color: #06D85F;
     margin: 80px 0;
-  }
+  } */
   
   
   .button {
@@ -128,6 +201,7 @@ h1 {
   }
 
   .popup .content {
+    margin-top: 10px;
     max-height: 30%;
     overflow: auto;
   }
