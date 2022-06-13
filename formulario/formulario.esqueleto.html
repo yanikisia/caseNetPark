@@ -2,11 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Netpark formulário de contrato</title>
     <link rel="stylesheet" href="formulario.estilo.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://infiniteiotdevices.com/images/logo.png" rel="icon" sizes="16x16" type="image/gif" />
     <script src="formulario.logica.js"></script>
 </head>
 <body>
@@ -27,121 +29,142 @@
     </section>
     </header>
     <section class="page-title" >
-    <Section></Section>
+    <Section>
+      <h1>Formulário de contratação de serviços Netpark</h1>
+    </Section>
     </section>
     <section class="main-container">
     <section class="container-form">
-        <form>
+        <form name="myform" novalidate>
          <section class="standardForm">
          <label for="companyName">Nome da Empresa:</label>
-         <input id="companyName" type="text" form="companyName" placeholder="Nome da empresa.">
-         <label for="companyCnpj">Cnpj da empresa.:</label>
-         <input  id="companyCnpj" form="companyCnpj" type="text" maxlength="18" placeholder="Cnpj da empresa.">
+         <input  id="companyName" type="text"  placeholder="Nome da empresa." required/>
+         <label for="companyCnpj">Cnpj da empresa:</label>
+         <input id="companyCnpj"  type="text" maxlength="18" placeholder="Cnpj da empresa." required/>
          <label for="bussinessName" >Nome do contato profissional responsável:</label>
-         <input form="bussinessName" id="bussinessName" type="text" placeholder="Nome do contato profissional responsável.">
+         <input  id="bussinessName" type="text" placeholder="Nome do contato profissional responsável." required/>
          <label for="bussinessEmail">Email do contato profissional responsável:</label>
-         <input id="bussinessEmail" type="email" form="bussinessEmail" placeholder="Email do contato profissional responsável.">
+         <input id="bussinessEmail" type="email"  placeholder="Email do contato profissional responsável." required/>
          <label for="bussinessPhone">Contato do profissional responsável:</label>
-         <input id="bussinessPhone" type="tel" form="bussinessPhone" placeholder="Contato do profissional responsável.">
+         <input required id="bussinessPhone" type="tel" placeholder="Contato do profissional responsável."/>
          <label for="financialName">Nome do contato financeiro:</label>
-         <input id="financialName" type="text" form="financialName" placeholder="Nome do contato financeiro.">
+         <input required id="financialName" type="text" placeholder="Nome do contato financeiro."/>
          <label for="financialEmail">Email do contato financeiro:</label>
-         <input id="financialEmail" type="email" form="financialEmail" placeholder="Email do contato financeiro.">
+         <input required id="financialEmail" type="email" placeholder="Email do contato financeiro."/>
          <label for="financialPhone">Contato do financeiro:</label>
-         <input id="financialPhone" type="tel" form="financialPhone" placeholder="Contato do financeiro.">
+         <input required id="financialPhone" type="tel"  placeholder="Contato do financeiro."/>
          <label for="contract">Número do contrato:</label>
-         <input id="contract" form="contract" type="tel" placeholder="Número do contrato">
+         <input required id="contract" maxlength="17"  type="text" placeholder="Número do contrato"/>
          <label for="zipCode">Cep:</label>
-         <input id="zipCode" form="zipCode" placeholder="Cep.">   
+         <input required id="zipCode"  placeholder="Cep."/>   
          <label for="adress">Endereço:</label>
-         <input id="adress" form="adress" type="text" placeholder="Endereço.">
+         <input required id="adress" type="text" placeholder="Endereço."/>
          <label for="adressNumber">Número:</label>
-         <input id="adressNumber" form="adressNumber" type="number" placeholder="Número.">
+         <input required id="adressNumber" type="number" placeholder="Número."/>
          <label for="city">Cidade:</label>
-         <input id="city" form="city" type="text" placeholder="Cidade.">
+         <input required id="city"  type="text" placeholder="Cidade."/>
          <label for="county">Municipio:</label>
-         <input id="county" type="text" form="county" placeholder="Municipio.">
+         <input required id="county" type="text"  placeholder="Municipio."/>
          <label for="state">Estado:</label>
-         <input id="state" type="text" form="state" placeholder="Estado.">
+         <input required id="state" type="text" placeholder="Estado."/>
          <label for="timeDayInitial">Hora inicial do evento:</label>
-         <input id="timeDayInitial" type="datetime" form="timeDayInitial" placeholder="Hora inicial do evento.">
+         <input required id="timeDayInitial" type="datetime" placeholder="Hora inicial do evento."/>
          <label for="timeDayFinal">Hora Final do evento:</label>
-         <input id="timeDayFinal" type="datetime" form="timeDayFinal" placeholder="Hora Final do evento.">
+         <input required id="timeDayFinal" type="datetime"  placeholder="Hora Final do evento."/>
          <label for="qtyGuest">Quantidade de Convidados:</label>
-         <input id="qtyGuest" form="qtyGuest" type="number" placeholder="Quantidade de Convidados.">
+         <input required id="qtyGuest" type="number" placeholder="Quantidade de Convidados."/>
          <label for="eventDay">Dia do Evento:</label>
-         <input id="eventDay" form="eventDay" type="date" placeholder="Dia do Evento.">
+         <input  id="eventDay"  type="date" placeholder="Dia do Evento." required/>
         </section>
-         <section >
-          <input class="checkbox" type="checkbox" id="isSamePay" name="isSamePay">
-          <label class="checkbox" for="isSamePay">A Empresa Contratante é a mesma que vai pagar pelo evento?</label>
+         <section class="checkbox" >
+          <input  type="checkbox" id="isSamePay" name="isSamePay">
+          <label for="isSamePay">A Empresa Contratante é a mesma que vai pagar pelo evento?</label>
          </section>
          <section id="payForm">
           <label for="payCompanyEmail">Email da empresa pagante:</label>
-          <input id="payCompanyEmail" type="email" form="payCompanyEmail" placeholder="Email da empresa pagante.">
+          <input id="payCompanyEmail" type="email"  placeholder="Email da empresa pagante." required/>
           <label for="payCompanyName">Nome da empresa pagante:</label>
-          <input id="payCompanyName" type="text" form="payCompanyName" placeholder="Nome da empresa pagante.">
+          <input id="payCompanyName" type="text"  placeholder="Nome da empresa pagante." required/>
           <label for="payCompanycnpj">Cnpj da empresa pagante:</label>
-          <input id="payCompanycnpj" form="payCompanycnpj" maxlength="18" placeholder="Cnpj da empresa pagante.">
+          <input id="payCompanycnpj"  maxlength="18" placeholder="Cnpj da empresa pagante." required/>
           <label for="payContractName">Nome do responsável da empresa pagante:</label>
-          <input id="payContractName" form="payContractName" type="text" placeholder="Nome do responsável da empresa pagante.">
+          <input id="payContractName"  type="text" placeholder="Nome do responsável da empresa pagante." required/>
           <label for="payContractEmail">Email do responsável da empresa pagante:</label>
-          <input id="payContractEmail" type="email" form="payContractEmail" placeholder="Email do responsável da empresa pagante.">
+          <input id="payContractEmail" type="email"  placeholder="Email do responsável da empresa pagante." required/>
          </section>
-         <section>
+         <section class="obsevations">
           <label for="generalObservations">Observações Gerais:</label>
           <textarea id="generalObservations" form="generalObservations" rows="10" cols="40" placeholder="Observações Gerais." maxlength="400"></textarea>
          </section>
-         
          <button type="submit"> Enviar </button>
         </form>
     </section>
+   
     </section>
-    <section>
-        <div id="popupErrorCep" class="overlay">
-            <div class="popup">
-              <h2>Erro no Cep</h2>
-              <a class="close" href="#">&times;</a>
-              <div class="content">
-                Cep inválido, por favor insira um cep válido.
-              </div>
-            </div>
-          </div>
-    </section>
-    <section>
-        <div id="popupErrorOutSP" class="overlay">
-            <div class="popup">
-              <h2>Cep Fora São Paulo</h2>
-              <a class="close" href="#">&times;</a>
-              <div class="content">
-                Infelizmente ainda não possuimos serviços pra sua localidade, nossos serviços apenas estão disponíveis em são paulo.
-              </div>
-            </div>
-          </div>
-    </section>
-    <section>
-        <div id="popupErroEmail" class="overlay">
-            <div class="popup">
-              <h2>Email no formato inválido</h2>
-              <a class="close" href="#">&times;</a>
-              <div class="content">
-                Você colocou um email no formato errado, por favor digite um email nesse formato: "seuEmail@email.com".
-              </div>
-            </div>
-          </div>
-    </section>
+    <hr class="space-betweew-form-footer">
     <footer>
     <section class="container-footer">
         <section class="copy-rights">
-
+          <img src="./uteis/logo-horizontal-dark-bg.svg" alt="Netpark">
+          <p id="bordao-netpark">Um bom dia, todos os dias.</p>
+          <hr>
+          <p id="titulo-copy">Copyrights © 2022 Yanikisia</p>
         </section>
         <section class="redes-sociais">
-
+          <h4>SIGA NOSSAS REDES</h4>
+          <div >
+              <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+          </div>
+          
         </section>
         <section class="institucioanal">
+          <h4>INSTITUCIONAL</h4>
+          <section>
+            <h5>Política de Privacidade</h5>
+            <h5>Termos de Uso</h5>
+            <h5>Termos de Uso de Plataformas Netpark</h5>
+            <h5>Código de Ética e Conduta</h5>
+          </section>
 
         </section>
     </section>
     </footer>
+    <section>
+      <div id="popupErrorCep" class="overlay">
+          <div class="popup">
+            <h2>Erro no Cep</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+              Cep inválido, por favor insira um cep válido.
+            </div>
+          </div>
+        </div>
+  </section>
+  <section>
+      <div id="popupErrorOutSP" class="overlay">
+          <div class="popup">
+            <h2>Cep Fora São Paulo</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+              Infelizmente ainda não possuimos serviços pra sua localidade, nossos serviços apenas estão disponíveis em são paulo.
+            </div>
+          </div>
+        </div>
+  </section>
+  <section>
+      <div id="popupErroEmail" class="overlay">
+          <div class="popup">
+            <h2>Email no formato inválido</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+              Você colocou um email no formato errado, por favor digite um email nesse formato: "seuEmail@email.com".
+            </div>
+          </div>
+        </div>
+  </section>
 </section>
 </body>

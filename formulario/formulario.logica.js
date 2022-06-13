@@ -10,11 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const payCompanyEmail = document.getElementById('payCompanyEmail');
     const financialEmail = document.getElementById('financialEmail');
     const isSamePay = document.getElementById('isSamePay');
+    const formData = document.querySelector('form');
+    const inputFeilds = document.querySelectorAll("input");
     
     cnpjCompanyInput.addEventListener('input', event => {
         cnpjCompanyInput.value = formatCnpj(cnpjCompanyInput.value);
     });
-    
     payCompanycnpjInput.addEventListener('input', event => {
         payCompanycnpjInput.value = formatCnpj(payCompanycnpjInput.value);
     });
@@ -39,34 +40,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     bussinessEmail.addEventListener('focusout', event => {
-      emailIsValid(bussinessEmail.value);
+      const email = emailIsValid(bussinessEmail.value);
+      if(!email) {
+        payCompanyEmail.value = '';
+      }
     });
 
     payContractEmail.addEventListener('focusout', event => {
-      emailIsValid(payContractEmail.value);
+      const email = emailIsValid(payContractEmail.value);
+      if(!email) {
+        payCompanyEmail.value = '';
+      }
     });
 
     payCompanyEmail.addEventListener('focusout', event => {
-      emailIsValid(payCompanyEmail.value);
+      const email = emailIsValid(payCompanyEmail.value);
+      if(!email) {
+        payCompanyEmail.value = '';
+      }
     });
 
     financialEmail.addEventListener('focusout', event => {
-      emailIsValid(financialEmail.value);
+      const email = emailIsValid(financialEmail.value);
+      if (!email) {
+        financialEmail.value = '';
+      }
     });
 
     isSamePay.addEventListener('change', function (event) {
         if (isSamePay.checked) {
+            document.getElementById('payCompanyName').setAttribute('required', 'false');
+            document.getElementById('payContractName').setAttribute('required', 'false');
+             payCompanycnpjInput.setAttribute('required', 'false');
+             payCompanyEmail.setAttribute('required', 'false');
+             payContractEmail.setAttribute('required', 'false');
             document.getElementById('payForm').style.display = 'none';
         } else {
             document.getElementById('payForm').style.display = 'grid';
         }
     });
 
-    document.querySelector('form').addEventListener('submit', event => {
-        event.preventDefault();
-        console.log('submit');
-        console.log(event.target.value);
-      });
+    formData.addEventListener('submit', event => {
+        console.log(event);
+        // event.preventDefault();
+        //  Array.from(inputFeilds).forEach((input) => {
+        //     if (!isSamePay.checked) {
+        //            document.getElementById('payCompanyName').setAttribute('required', 'true');
+        //            document.getElementById('payContractName').setAttribute('required', 'true');
+        //             payCompanycnpjInput.setAttribute('required', 'true');
+        //             payCompanyEmail.setAttribute('required', 'true');
+        //             payContractEmail.setAttribute('required', 'true');
+        //     }
+        // });
+    })
 });
  
 pesquisarCep = async(zipCode)  => {
