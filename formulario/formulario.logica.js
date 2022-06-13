@@ -7,15 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const financialPhone = document.getElementById('financialPhone');
     
     cnpjCompanyInput.addEventListener('input', event => {
-        const cnpjCompany = cnpjCompanyInput.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
-        cnpjCompanyInput.value = !cnpjCompany[2] ? cnpjCompany[1] : cnpjCompany[1] + '.' + cnpjCompany[2] + '.' + cnpjCompany[3] + '/' + cnpjCompany[4] + (cnpjCompany[5] ? '-' + cnpjCompany[5] : '');
-      console.log(`The value pcompany  is ${cnpjCompanyInput.value}`);
+        cnpjCompanyInput.value = formatCnpj(cnpjCompanyInput.value);
     });
     
     payCompanycnpjInput.addEventListener('input', event => {
-        const payCnpjCompany = payCompanycnpjInput.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
-        payCompanycnpjInput.value = !payCnpjCompany[2] ? payCnpjCompany[1] : payCnpjCompany[1] + '.' + payCnpjCompany[2] + '.' + payCnpjCompany[3] + '/' + payCnpjCompany[4] + (payCnpjCompany[5] ? '-' + payCnpjCompany[5] : '');
-      console.log(`The value of payCompany is ${payCompanycnpjInput.value}`);
+        payCompanycnpjInput.value = formatCnpj(p.value);
     });
 
     zipCodeInput.addEventListener('input', event => {
@@ -92,4 +88,15 @@ formatPhone = (bussinessPhone) => {
         newBussinessPhone = newBussinessPhone.replace(/^(\d\d)(\d{0,5})/,"($1) $2");
     }
    return newBussinessPhone;
+}
+
+formatCnpj = (cnpjCompanyInput) => {
+    let cnpjCompany = cnpjCompanyInput.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
+    cnpjCompany = !cnpjCompany[2] ? cnpjCompany[1] : cnpjCompany[1] + '.' + cnpjCompany[2] + '.' + cnpjCompany[3] + '/' + cnpjCompany[4] + (cnpjCompany[5] ? '-' + cnpjCompany[5] : '');
+    return cnpjCompany;
+}
+
+emailIsValid = (email) => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
 }
