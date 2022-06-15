@@ -5,13 +5,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const zipCodeInput = document.getElementById('zipCode');
     const bussinessPhone = document.getElementById('bussinessPhone');
     const financialPhone = document.getElementById('financialPhone');
+    const bussinessEmail = document.getElementById('bussinessEmail');
+    const payContractEmail = document.getElementById('payContractEmail');
+    const payCompanyEmail = document.getElementById('payCompanyEmail');
+    const financialEmail = document.getElementById('financialEmail');
+    const isSamePay = document.getElementById('isSamePay');
+    const formData = document.querySelector('form');
+    const inputFeilds = document.querySelectorAll("input");
     
     cnpjCompanyInput.addEventListener('input', event => {
         cnpjCompanyInput.value = formatCnpj(cnpjCompanyInput.value);
     });
-    
     payCompanycnpjInput.addEventListener('input', event => {
-        payCompanycnpjInput.value = formatCnpj(p.value);
+        payCompanycnpjInput.value = formatCnpj(payCompanycnpjInput.value);
     });
 
     zipCodeInput.addEventListener('input', event => {
@@ -33,11 +39,60 @@ document.addEventListener('DOMContentLoaded', () => {
         pesquisarCep(zipCodeOutHyphen);
     });
 
-    document.querySelector('form').addEventListener('submit', event => {
-        event.preventDefault();
-        console.log('submit');
-        console.log(event.target.value);
-      });
+    bussinessEmail.addEventListener('focusout', event => {
+      const email = emailIsValid(bussinessEmail.value);
+      if(!email) {
+        payCompanyEmail.value = '';
+      }
+    });
+
+    payContractEmail.addEventListener('focusout', event => {
+      const email = emailIsValid(payContractEmail.value);
+      if(!email) {
+        payCompanyEmail.value = '';
+      }
+    });
+
+    payCompanyEmail.addEventListener('focusout', event => {
+      const email = emailIsValid(payCompanyEmail.value);
+      if(!email) {
+        payCompanyEmail.value = '';
+      }
+    });
+
+    financialEmail.addEventListener('focusout', event => {
+      const email = emailIsValid(financialEmail.value);
+      if (!email) {
+        financialEmail.value = '';
+      }
+    });
+
+    isSamePay.addEventListener('change', function (event) {
+        if (isSamePay.checked) {
+            document.getElementById('payCompanyName').setAttribute('required', 'false');
+            document.getElementById('payContractName').setAttribute('required', 'false');
+             payCompanycnpjInput.setAttribute('required', 'false');
+             payCompanyEmail.setAttribute('required', 'false');
+             payContractEmail.setAttribute('required', 'false');
+            document.getElementById('payForm').style.display = 'none';
+        } else {
+            document.getElementById('payForm').style.display = 'grid';
+        }
+    });
+
+    formData.addEventListener('submit', event => {
+        console.log(event);
+        // event.preventDefault();
+        //  Array.from(inputFeilds).forEach((input) => {
+        //     if (!isSamePay.checked) {
+        //            document.getElementById('payCompanyName').setAttribute('required', 'true');
+        //            document.getElementById('payContractName').setAttribute('required', 'true');
+        //             payCompanycnpjInput.setAttribute('required', 'true');
+        //             payCompanyEmail.setAttribute('required', 'true');
+        //             payContractEmail.setAttribute('required', 'true');
+        //     }
+        // });
+    })
 });
  
 pesquisarCep = async(zipCode)  => {
@@ -45,7 +100,7 @@ pesquisarCep = async(zipCode)  => {
     const dada = await fetch(url).then(async(reveivedDada) => {
         const adress = await reveivedDada.json();
         if (adress?.erro) {
-            openModalError();
+            openModalErrorCep();
         } else if(adress.uf !=='SP') {
             openModalErrorOutSP();
         }
@@ -63,12 +118,16 @@ fillFormAdress = (endereco) => {
     document.getElementById('state').value = endereco.uf;
 }
 
-openModalError = () => {
-    document.location.href="#popup1";
+openModalErrorCep = () => {
+    document.location.href="#popupErrorCep";
 }
 
 openModalErrorOutSP = () => {
-    document.location.href="#popup2";
+    document.location.href="#popupErrorOutSP";
+}
+
+openModalErrorEmail = () => {
+    document.location.href="#popupErroEmail";
 }
 
 formatPhone = (bussinessPhone) => {
@@ -97,6 +156,12 @@ formatCnpj = (cnpjCompanyInput) => {
 }
 
 emailIsValid = (email) => {
-    const re = /\S+@\S+\.\S+/;
-    return re.test(email);
+    const regexValidation = /^([a-z]){1,}([a-z0-9._-]){1,}([@]){1}([a-z]){2,}([.]){1}([a-z]){2,}([.]?){1}([a-z]?){2,}$/i;
+    if (regexValidation.test(email)){
+        return true; }
+        else{
+            openModalErrorEmail();
+        return false;
+        }
+    
 }
