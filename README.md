@@ -6,6 +6,7 @@
 <hr/>
 
  #### Modo de usar:
+ - Abrir por um notebook ou computador Desktop.
  - clicar no link abaixo.
  - preencher os campos do formulário.
  - clicar em "enviar".
