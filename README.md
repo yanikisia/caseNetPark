@@ -3,6 +3,12 @@
 ### Descrição:
 - Projeto Desenvolvido com as tecnologias: HTML5, JavaScript, css e com validação reCAPTCHA V3.
 - A pagina simula um formulário para contratação de serviços para a empresa Netpark. 
+<hr/>
+
+ #### Modo de usar:
+ - clicar no link abaixo.
+ - preencher os campos do formulário.
+ - clicar em "enviar".
 
 ### Link: 
 http://casenetpark.great-site.net/
