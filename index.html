@@ -10,6 +10,7 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://infiniteiotdevices.com/images/logo.png" rel="icon" sizes="16x16" type="image/gif" />
     <script src="formulario.logica.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdRCXggAAAAAO-cYwNz9V02kTaovM5aMfOI3ngp"></script>
 </head>
 <body>
     <section class="body-container"> 
@@ -35,7 +36,7 @@
     </section>
     <section class="main-container">
     <section class="container-form">
-        <form name="myform" novalidate>
+        <form  method="post">
          <section class="standardForm">
          <label for="companyName">Nome da Empresa:</label>
          <input  id="companyName" type="text"  placeholder="Nome da empresa." required/>
@@ -165,6 +166,28 @@
             </div>
           </div>
         </div>
+  </section>
+  <section>
+      <div id="popupErroRecaptcha" class="overlay">
+          <div class="popup">
+            <h2>internalCode-131</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+              Erro no Google Recaptcha.
+            </div>
+          </div>
+        </div>
+  </section>
+  <section>
+     <div id="popupSuccess" class="overlay">
+      <div class="popup-success">
+        <h2>Sucesso</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+          Seu formulário foi enviado com sucesso, logo entraremos em contato.
+        </div>
+      </div>
+    </div>
   </section>
 </section>
 </body>
