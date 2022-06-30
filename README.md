@@ -1,5 +1,7 @@
 # caseNetPark
-
+https://app.infinityfree.net/accounts/epiz_31973193
+y.kathlyn@hotmail.com
+Jose86658227
 ### Descrição:
 - Projeto Desenvolvido com as tecnologias: HTML5, JavaScript, css e com validação reCAPTCHA V3.
 - A pagina simula um formulário para contratação de serviços para a empresa Netpark. 
