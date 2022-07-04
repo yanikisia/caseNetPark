@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const formTrigger = formData.querySelector("button.submit");
         const submitEvent = new SubmitEvent("submit", { submitter: formTrigger });
         const popErroRecaptchaClose = document.getElementById("popupErroRecaptcha");
+        const finalTime = document.getElementById("timeDayFinal");
+        const initialTime = document.getElementById("timeDayInitial");
         const calendar = document.getElementById('eventDay');
         let currentelyDate= new Date();
     
@@ -47,6 +49,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Listener do input financialPhone que aplica a formatação regex correta ao input de celular referente ao contato financeiro.
         financialPhone.addEventListener('input', () => {
             financialPhone.value = formatPhone(financialPhone.value);
+        });
+    
+    // Listener do input financialPhone que aplica a formatação regex correta ao input de celular referente ao contato financeiro.
+        finalTime.addEventListener('focusout', () => {
+            if (initialTime.value !== '' && Number(initialTime.value) > Number(finalTime.value)) {
+                openModalErrorHour();
+                finalTime.value = '';
+            }
+        });
+    
+    // Listener do input financialPhone que aplica a formatação regex correta ao input de celular referente ao contato financeiro.
+        initialTime.addEventListener('focusout', () => {
+            if (finalTime.value !== '' && Number(initialTime.value) > Number(finalTime.value)) {
+                openModalErrorHour();
+                initialTime.value = '';
+            }
         });
     
     // Listener do input zipCodeInput, que é chamado depois que o input sai de foco, 
@@ -110,26 +128,28 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             const zipCodeOutHyphen = zipCodeInput.value.replace(/-/g , '');
             pesquisarCep(zipCodeOutHyphen);
-        grecaptcha.ready(function() {
-            grecaptcha.execute('6LdRCXggAAAAAO-cYwNz9V02kTaovM5aMfOI3ngp', {action: 'submit'}).then(function async(token) {
-                const secrectKey = '6LdRCXggAAAAACne3SMhrwhG5zHOhhQdNCJzsdPu';
-               fetch(`https://cors-anywhere.herokuapp.com/https://www.google.com/recaptcha/api/siteverify?secret=${secrectKey}&response=${token}`,
-                { mode: 'cors', method: 'POST'}).then(async(response) => {
-                   const data = await response.json();
-                   if ( data.score < 0.5) {
-                       openModalErrorRecaptcha();
-                   } else {
-                        openModalSuccess(formData);
-                   }
-               });
+     
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6LfQuXcgAAAAADDtF30tZ1zGgnS-dPL6PMtaWb9g', {action: 'submit'}).then(function async(token) {
+                    const secrectKey = '6Lemaq8gAAAAACDKO3EjZCgbBK7uxWHMRTpTfcJ0';
+                        console.log(token);
+                    fetch(`https://hoppscotch.apollosoftware.xyz/https://www.google.com/recaptcha/api/siteverify?secret=${secrectKey}&response=${token}`,
+                        { mode: 'cors', method: 'POST'})
+                        .then(async(response) => {
+                        const data = await response.json();
+                        console.log(data);
+                            if ( data.score < 0.5) {
+                                openModalErrorRecaptcha();
+                            } else {
+                                    openModalSuccess(formData);
+                            }
+                        })
+                        .catch(error => {
+                        openModalErrorRecaptcha();
+                        });
+                });
             });
-          });
     
-        });
-    
-    //Listener do modal de erro do reCaptcha, faz com que a janela seja recarregada toda vez que o modal fechar;
-        popErroRecaptchaClose.addEventListener('click', (event) => {
-        document.location.reload(true);
         });
     });
     
@@ -174,10 +194,18 @@ document.addEventListener('DOMContentLoaded', () => {
     openModalErrorEmail = () => {
         document.location.href="#popupErroEmail";
     }
+
+    // Chamada de modal de formatação incorreta do email.
+    openModalErrorHour = () => {
+        document.location.href="#popupErroHour";
+    }
     
-    // Chamada de modal de erro do reCaptcha.
+    // Chamada de modal de erro do reCaptcha e esperar 2,5 segundo e faz a página dá reload.
     openModalErrorRecaptcha = () => {
         document.location.href="#popupErroRecaptcha";
+        setTimeout(()=> {
+         document.location.reload(true);
+        },2500)
     }
     
     // Chamada de modal de sucesso de envio do formulário.

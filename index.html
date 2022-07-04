@@ -10,7 +10,7 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://infiniteiotdevices.com/images/logo.png" rel="icon" sizes="16x16" type="image/gif" />
     <script src="formulario.logica.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LdRCXggAAAAAO-cYwNz9V02kTaovM5aMfOI3ngp"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfQuXcgAAAAADDtF30tZ1zGgnS-dPL6PMtaWb9g"></script>
 </head>
 <body>
     <section class="body-container"> 
@@ -69,9 +69,9 @@
          <label for="state">Estado:</label>
          <input required id="state" type="text" placeholder="Estado."/>
          <label for="timeDayInitial">Hora inicial do evento:</label>
-         <input required id="timeDayInitial" type="datetime" placeholder="Hora inicial do evento."/>
+         <input required id="timeDayInitial" type="number" min="00" max="23" placeholder="Hora inicial do evento com no máximo dois digitos."/>
          <label for="timeDayFinal">Hora Final do evento:</label>
-         <input required id="timeDayFinal" type="datetime"  placeholder="Hora Final do evento."/>
+         <input required id="timeDayFinal" type="number" min="00" max="23" placeholder="Hora Final do evento com no máximo dois digitos."/>
          <label for="qtyGuest">Quantidade de Convidados:</label>
          <input required id="qtyGuest" type="number" placeholder="Quantidade de Convidados."/>
          <label for="eventDay">Dia do Evento:</label>
@@ -185,6 +185,17 @@
         <a class="close" href="#">&times;</a>
         <div class="content">
           Seu formulário foi enviado com sucesso, logo entraremos em contato.
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+     <div id="popupErroHour" class="overlay">
+      <div class="popup">
+        <h2>Hora inválida</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+          O horário inserido é inválido, por favor insira valores para que a hora inicial seja menor que a hora final.
         </div>
       </div>
     </div>
