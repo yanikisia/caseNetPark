@@ -174,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (adress.erro) {
                 openModalErrorCep();
             } else if(adress.uf !=='SP') {
+                document.getElementById('zipCode').value = '';
                 openModalErrorOutSP();
             } else {
             fillFormAdress(adress);
@@ -199,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Chamada de modal de erro quando cep é fora de são paulo e recarrega a pagina.
     openModalErrorOutSP = () => {
         document.location.href="#popupErrorOutSP";
-          document.location.href= "#";
     }
 
     // Chamada de modal de formatação incorreta do email.
