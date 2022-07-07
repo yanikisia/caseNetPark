@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netpark formulário de contrato</title>
     <link rel="stylesheet" href="formulario.estilo.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -13,12 +13,21 @@
     <script src="https://www.google.com/recaptcha/api.js?render=6LfQuXcgAAAAADDtF30tZ1zGgnS-dPL6PMtaWb9g"></script>
 </head>
 <body>
-    <section class="body-container"> 
+    <section class="body-container">
     <header valign="top" class="header">
         <section class="container-header">
+            <section class="menu-responsivo">
         <section class="logo">
             <img src="./uteis/logo-horizontal-dark-bg.svg" alt="Netpark">
         </section>
+         <button  class="menu" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu" id="responsive-button" >
+      <svg width="60" height="60" viewBox="0 0 100 100">
+        <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" id="responsive" />
+        <path class="line line2" d="M 20,50 H 80" />
+        <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+      </svg>
+    </button>
+    </section>
         <section class="navegation">
             <h1>SERVIÇOS</h1>
             <h1>PRODUTOS</h1>
@@ -26,6 +35,14 @@
             <h1>DIFERENCIAIS</h1>
             <h1>PERGUNTAS FREQUENTES</h1>
             <h1>FALE CONOSCO</h1>
+        </section>
+        <section id="navResponsive" class="navegation-responsivo">
+            <p>SERVIÇOS</p>
+            <p>PRODUTOS</p>
+            <p id="assinatura">ASSINATURA NETPARK PASS</p>
+            <p>DIFERENCIAIS</p>
+            <p>PERGUNTAS FREQUENTES</p>
+            <p>FALE CONOSCO</p>
         </section>
     </section>
     </header>
@@ -57,7 +74,7 @@
          <label for="contract">Número do contrato:</label>
          <input required id="contract" maxlength="17"  type="text" placeholder="Número do contrato"/>
          <label for="zipCode">Cep:</label>
-         <input required id="zipCode"  placeholder="Cep."/>   
+         <input required id="zipCode"  placeholder="Cep."/>
          <label for="adress">Endereço:</label>
          <input required id="adress" type="text" placeholder="Endereço."/>
          <label for="adressNumber">Número:</label>
@@ -97,10 +114,10 @@
           <label for="generalObservations">Observações Gerais:</label>
           <textarea id="generalObservations" form="generalObservations" rows="10" cols="40" placeholder="Observações Gerais." maxlength="400"></textarea>
          </section>
-         <button type="submit"> Enviar </button>
+         <button class="form-button" type="submit"> Enviar </button>
         </form>
     </section>
-   
+
     </section>
     <hr class="space-betweew-form-footer">
     <footer>
@@ -120,7 +137,7 @@
                 <li><a href="#"><i class="fa fa-instagram"></i></a></li>
               </ul>
           </div>
-          
+
         </section>
         <section class="institucioanal">
           <h4>INSTITUCIONAL</h4>
@@ -201,4 +218,3 @@
     </div>
   </section>
 </section>
-</body>
